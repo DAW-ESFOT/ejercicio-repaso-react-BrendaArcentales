@@ -30,9 +30,9 @@ function App() {
         const response = await fetch(
             `https://stark-spire-22280.herokuapp.com/api/books/${id}`
         );
-        const bookJson = await response.json();
-        console.log("json", bookJson);
-        setBooksDetails(bookJson);
+        const booksDetailsJson = await response.json();
+        console.log("json", booksDetailsJson);
+        setBooksDetails(booksDetailsJson);
         setVisibleModal(true);
       }
     };
