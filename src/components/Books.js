@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Col, Card, Modal,Button, Pagination} from 'antd';
 import 'antd/dist/antd.css';
+import '../styles/App.css';
 
 const Books = ( props ) => {
     const [ listBooks, setListBooks ] = useState( props.listBooks );
@@ -54,7 +55,7 @@ const Books = ( props ) => {
                     listBooks.map((book) =>(
                         <Card key = {book.id}
                               style = { {
-                                  width: 320,
+                                  width: 330,
                                   display: 'inline-block'
                               } }
                         >
@@ -76,7 +77,7 @@ const Books = ( props ) => {
                                         <h3 style={{fontWeight: 'bold'}}>{book.title}</h3>
                                         <h5>{book.author} - {book.year_edition}</h5>
                                         <h4>{book.price}</h4>
-                                        <Button type="primary" onClick={() => setId(book.id)}>Ver más</Button>
+                                        <Button className='boton3' onClick={() => setId(book.id)}>Ver más</Button>
                                     </div>
                                 </Col>
                             </div>
@@ -96,7 +97,12 @@ const Books = ( props ) => {
                             <p><strong>Páginas:</strong> {booksDetails.pages}</p>
                             <p style={{fontWeight: 'bold'}}>Sinopsis:</p>
                             <p>{booksDetails.synopsis}</p>
-                            <p><strong>Disponible:</strong>{booksDetails.available === true ? <p type="success"> Si</p> : <p type="danger"> No</p>}</p>
+                            <p><strong>Disponible:</strong>
+                                {
+                                    booksDetails.available === true ?
+                                        <p type="success"> Si</p> : <p type="danger"> No</p>
+                                }
+                            </p>
                             <p><strong>Categoría:</strong> {booksDetails.category}</p>
                         </div>
                     </Col>
